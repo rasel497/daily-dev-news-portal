@@ -1,7 +1,18 @@
 // alert('HI');
+// load spinnwer-01
+const loadSpinner = (spinner) => {
+    const spinnerLoad = document.getElementById("spinner-loader")
+    if (spinner) {
+        spinnerLoad.classList.remove('d-none');
+    }
+    else {
+        spinnerLoad.classList.add('d-none');
+    }
+}
 
 //load moadal
 const modalDetails = async (id) => {
+
     const res = await fetch(`https://openapi.programming-hero.com/api/news/${id}`);
     const data = await res.json();
     modalShow(data.data[0]);
@@ -40,8 +51,9 @@ const modalShow = (moreDetails) => {
     moadalClick.appendChild(modalDiv);
 }
 
-
+// loadAll News
 const loadAllNews = async () => {
+
     const res = await fetch("https://openapi.programming-hero.com/api/news/categories");
     const data = await res.json();
     dispalyShow(data);
@@ -70,13 +82,33 @@ const dispalyShow = (categories) => {
 }
 
 const loadNews = async (category_id) => {
+    // load spinner called
+    loadSpinner(true);
+
     const res = await fetch(`https://openapi.programming-hero.com/api/news/category/${category_id}`);
     const data = await res.json();
     loadAllNewsDisplay(data);
 }
 
 const loadAllNewsDisplay = async (newsPortal) => {
+    newsPortal.data.sort((first, second) => second.total_view - first.total_view);
     // console.log(newsPortal.data);
+
+    //nes items count
+    const newsCount = document.getElementById("news-count");
+
+    if (newsPortal.data.length === 0) {
+        newsCount.innerHTML = `
+        <p class="text-danger">No data found!</p>
+        `;
+    }
+    else {
+
+        newsCount.innerHTML = `
+        <p>${newsPortal.data.length} Items Found</p>
+        `;
+        // console.log(newsPortal.data.length);
+    }
 
     const newsPortalShow = newsPortal.data;
     const breakingNews = document.getElementById('breakingNews');
@@ -131,8 +163,9 @@ const loadAllNewsDisplay = async (newsPortal) => {
         `;
         breakingNews.appendChild(breakingNewsDiv);
     })
+    //load spinner
+    loadSpinner(false);
 }
-
 
 
 
