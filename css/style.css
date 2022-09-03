@@ -49,6 +49,13 @@
     text-transform: uppercase;
 }
 
+#news-blogs {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
 .navbar ul li::after {
     content: '';
     height: 3px;

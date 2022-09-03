@@ -13,6 +13,50 @@
 </head>
 
 <body class="body">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+
 
     <header class="container">
 
@@ -26,8 +70,8 @@
             </div>
 
             <ul>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Blog</a></li>
+                <li><a href="index.html">News</a></li>
+                <li><a href="index.html">Blog</a></li>
 
             </ul>
         </div>
@@ -39,15 +83,22 @@
 
 
     <main>
-        <section class="container text-black mt-4">
-            <h1 class="fw-semibold">Bonus Four Questions!</h1>
-            <div class="row row-cols-1 row-cols-md-2 g-4">
+        <section class="container text-black mt-4 mb-4">
+            <h1 class="fw-semibold text-uppercase text-warning">Bonus Four Questions!</h1>
+            <div class="row row-cols-1 row-cols-md-1 g-4">
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title fw-semibold">01. Difference var, let and const?</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><strong>Var</strong> variable is the old way to declare a variable
+                                in javascript; var variable has the function scope, But global scope when it is declared
+                                outside the function. <br>
+                                <strong>Let</strong> variable introduce a special feature that does
+                                not allow re-declaration of variables, if you remember, re-declaration was a problem in
+                                var variable but let variable solve this problem. <br><strong>Const</strong> variable
+                                also has the Block
+                                scope like let variable, const variable also can't be accessed outside of the scope.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -56,8 +107,20 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title fw-semibold"> 02. Arrow function vs Reguler function?</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><strong>Arrow function</strong> The behavior of this inside of an arrow
+                                function differs considerably from the regular function's this behavior. The arrow
+                                function
+                                doesn't define its own execution context.
+                                No matter how or where being executed, this value inside of an arrow function always
+                                equals this value from the outer function. In other words, the arrow function resolves
+                                this lexically.<br>
+                                <strong>Reguler function</strong> Inside of a regular JavaScript
+                                function, this value (aka the execution context) is dynamic.
+                                The dynamic context means that the value of this depends on how the function is invoked.
+                                In JavaScript, there are 4 ways you can invoke a regular function.
+                                During a simple invocation the value of this equals to the global object (or undefined
+                                if the function runs in strict mode):
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -66,8 +129,18 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title fw-semibold">03. Difference map, forEach, filter and find?</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><strong>ForEach()</strong> executes the same code on every element in
+                                an
+                                array and returns
+                                a new array with the updated elements.<br>
+                                <strong>Map()</strong> is used to execute the same code on every element
+                                in an array but does not change the array and it returns undefined.<br>
+                                <strong>Filter()</strong> checks every element in an array to see if it meets a certain
+                                criteria and returns a new array with the elements that return truthy for the
+                                criteria.<br>
+                                <strong>Find()</strong> method returns the value of the first element that passes a
+                                test. The find() method executes a function for each array element
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -76,8 +149,11 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title fw-semibold">04. Why we use template string in javascript?</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
+
+                            <p class="card-text"><strong>Template string</strong> Template literlsa are literals
+                                delimited with backtick (`) characters, allowing for multi-line strings, for string
+                                interpolation with embedded expressions, and for special constructs called tagged
+                                templates</p>
                         </div>
                     </div>
                 </div>
@@ -89,7 +165,9 @@
 
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
 
 </body>
 

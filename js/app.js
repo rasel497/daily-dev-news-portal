@@ -1,10 +1,50 @@
 // alert('HI');
 
+//load moadal
+const modalDetails = async (id) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/news/${id}`);
+    const data = await res.json();
+    modalShow(data.data[0]);
+}
+
+const modalShow = (moreDetails) => {
+
+    const { image_url, title, details } = moreDetails;
+
+    console.log(moreDetails);
+    const moadalClick = document.getElementById("modal-show");
+    moadalClick.textContent = ""; // rest previous click or search
+    const modalDiv = document.createElement("div");
+    modalDiv.classList.add("modal-content");
+    modalDiv.innerHTML = `
+ 
+        <div class="modal-header">
+             <h5 class="modal-title" id="exampleModalLabel">More Deatails</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <img class="img-fluid" src="${image_url}">
+        </div> 
+        <div class="modal-body">
+        <h4 class="card-text">${title}...</4>
+        </div>
+        <div class="modal-body">
+        <p class="card-text">${details}...</p>
+        </div>
+        <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+             <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+
+    `;
+    moadalClick.appendChild(modalDiv);
+}
+
+
 const loadAllNews = async () => {
     const res = await fetch("https://openapi.programming-hero.com/api/news/categories");
     const data = await res.json();
     dispalyShow(data);
-
 }
 
 loadAllNews();
@@ -40,17 +80,17 @@ const loadAllNewsDisplay = async (newsPortal) => {
 
     const newsPortalShow = newsPortal.data;
     const breakingNews = document.getElementById('breakingNews');
-
+    breakingNews.textContent = "";
     newsPortalShow.forEach(news => {
         // console.log(news);
 
         // destructuring
-        const { thumbnail_url, title, details, author, total_view, rating } = news;
+        const { thumbnail_url, title, details, author, total_view, rating, _id } = news;
 
         const breakingNewsDiv = document.createElement("div");
         breakingNewsDiv.classList.add('card', 'mb-3');
         breakingNewsDiv.innerHTML = `
-        <div class="row g-0">
+        <div class="row g-0" onclick="modalDetails('${_id}')" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="col-md-4">
                 <img src="${thumbnail_url}" class="img-fluid rounded-start" alt="...">
              </div>
@@ -92,9 +132,6 @@ const loadAllNewsDisplay = async (newsPortal) => {
         breakingNews.appendChild(breakingNewsDiv);
     })
 }
-
-//
-
 
 
 
