@@ -58,8 +58,8 @@ const loadAllNewsDisplay = async (newsPortal) => {
                 <div class="card-body">
                     <h5 class="card-title">${title}</h5>
                      <p class="card-text">${details.slice(0, 300)}...</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        <div class="d-flex align-items-center">
+                     
+                        <div class="d-flex align-self-end align-items-center flex-column flex-md-row">
                             <div class="col-md-4 col-12 d-flex align-items-center">
 
                                     <div class="col-4"><img class="img-fluid rounded-circle" src="${author.img}"></div>
