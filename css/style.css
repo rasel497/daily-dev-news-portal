@@ -37,14 +37,15 @@
 .navbar ul li {
     list-style: none;
     display: inline-block;
-    margin: 0 20px;
+    margin: 0 10px;
     position: relative;
 
 }
 
 .navbar ul li a {
     text-decoration: none;
-    color: black;
+    color: white;
+    font-weight: 700;
     text-transform: uppercase;
 }
 
@@ -56,8 +57,7 @@
     background: tomato;
     position: absolute;
     left: 0;
-    bottom: -10px;
-    transition: 0.5s;
+    bottom: -4px;
 }
 
 .navbar ul li:hover::after {
