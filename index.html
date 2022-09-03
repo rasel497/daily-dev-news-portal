@@ -14,28 +14,42 @@
 <body class="body">
 
     <header class="container">
-        <div class="navbar">
+        <section>
+            <!-- navbar section -->
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container">
+                    <a class="navbar-brand text-success fw-bold" href="#"><a href="index.html"
+                            style="font-weight: 800; font-size:x-large; color:black; text-decoration: none">Daily
+                            devs-<span
+                                style="font-weight: 800; font-size:x-large; color: red; text-decoration: none">News</span></a>
 
-            <!-- <img class="text-logo" src="img/logo.png" alt=""> -->
-            <div class="text-logo">
-                <a href="index.html"
-                    style="font-weight: 800; font-size:x-large; color:black; text-decoration: none">Daily devs-</a>
-                <a href="index.html"
-                    style="font-weight: 800; font-size:x-large; color: red; text-decoration: none">News</a>
-            </div>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
 
-            <div id="news-blogs" class="text-logo ">
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                            <ul class="navbar-nav   fs-5 fw-semibold">
+                                <li class="nav-item">
+                                    <a class="nav-link active text-center text-success" aria-current="page"
+                                        href="index.html">News</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active text-center text-success" aria-current="page"
+                                        href="blog.html">Blogs</a>
+                                </li>
+                                <li class="nav-item ms-md-3 d-flex justify-content-center">
+                                    <img src="img/user.png" alt="">
+                                </li>
 
-                <a href="#"
-                    style="font-weight: 600; color: white; font-size:large; text-decoration: none; padding: 20px;">News</a>
-                <a href="blog.html"
-                    style="font-weight: 600; color: blue; font-size:large; text-decoration: none">Blogs</a>
-
-            </div>
-
-
-        </div>
+                            </ul>
+                        </div>
+                </div>
+            </nav>
+        </section>
     </header>
+
 
     <section class="container">
         <hr>
@@ -44,19 +58,19 @@
     <main>
 
         <!-- news nav section -->
-        <div id="nav2" class="navbar">
-            <ul id="categories-name">
+        <div id="nav2" class="navbar ">
+            <ul id="categories-name"
+                class="d-flex flex-wrap align-items-center justify-content-md-between flex-column flex-md-row">
 
                 <!-- dynamically added -->
 
             </ul>
         </div>
 
-
-
         <section class="container">
-            <div id="news-count" class="py-3 ps-4 mb-4 text-primary bg-light fs-3 fw-semibold">
-
+            <!-- newsi teams count show -->
+            <div id="news-count" class="rounded py-3 ps-4 mb-4 text-black bg-light fs-2 fw-semibold">
+                <h3>Choice any favourite category</h3>
             </div>
             <div id="breakingNews">
                 <!-- <div class="card mb-3">
@@ -101,10 +115,9 @@
 
 
 
-
-    <footer>
-        <div class="text-black text-center">
-            <p>Copyright 2021 News Portal</p>
+    <footer class="container mb-4">
+        <div class="rounded text-light fw-semibold text-center p-4 bg-info">
+            <p>Copyright 2022 @ Daily Developers News Portal!</p>
         </div>
     </footer>
 

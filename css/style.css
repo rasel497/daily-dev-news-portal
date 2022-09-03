@@ -59,12 +59,12 @@
 .navbar ul li::after {
     content: '';
     height: 3px;
-    /* width: 100;  */
     width: 100;
     background: tomato;
     position: absolute;
     left: 0;
-    bottom: -4px;
+    bottom: -1px;
+
 }
 
 .navbar ul li:hover::after {
