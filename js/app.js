@@ -12,14 +12,18 @@ const loadSpinner = (spinner) => {
 
 //load moadal
 const modalDetails = async (id) => {
-
-    const res = await fetch(`https://openapi.programming-hero.com/api/news/${id}`);
-    const data = await res.json();
-    modalShow(data.data[0]);
+    try {
+        const res = await fetch(`https://openapi.programming-hero.com/api/news/${id}`);
+        const data = await res.json();
+        modalShow(data.data[0]);
+    }
+    catch {
+        console.log(error);
+    }
 }
-
+// modalShow
 const modalShow = (moreDetails) => {
-
+    //destructuring
     const { image_url, title, details } = moreDetails;
 
     console.log(moreDetails);
@@ -30,7 +34,7 @@ const modalShow = (moreDetails) => {
     modalDiv.innerHTML = `
  
         <div class="modal-header">
-             <h5 class="modal-title" id="exampleModalLabel">More Deatails</h5>
+            <h5 class="modal-title" id="exampleModalLabel">More Deatails</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -51,12 +55,16 @@ const modalShow = (moreDetails) => {
     moadalClick.appendChild(modalDiv);
 }
 
-// loadAll News
-const loadAllNews = async () => {
 
-    const res = await fetch("https://openapi.programming-hero.com/api/news/categories");
-    const data = await res.json();
-    dispalyShow(data);
+const loadAllNews = async () => {
+    try {
+        const res = await fetch("https://openapi.programming-hero.com/api/news/categories");
+        const data = await res.json();
+        dispalyShow(data);
+    }
+    catch {
+        console.log(error);
+    }
 }
 
 loadAllNews();
@@ -84,10 +92,15 @@ const dispalyShow = (categories) => {
 const loadNews = async (category_id) => {
     // load spinner called
     loadSpinner(true);
+    try {
+        const res = await fetch(`https://openapi.programming-hero.com/api/news/category/${category_id}`);
+        const data = await res.json();
+        loadAllNewsDisplay(data);
+    }
+    catch {
+        console.log(error);
+    }
 
-    const res = await fetch(`https://openapi.programming-hero.com/api/news/category/${category_id}`);
-    const data = await res.json();
-    loadAllNewsDisplay(data);
 }
 
 const loadAllNewsDisplay = async (newsPortal) => {
@@ -103,7 +116,6 @@ const loadAllNewsDisplay = async (newsPortal) => {
         `;
     }
     else {
-
         newsCount.innerHTML = `
         <p>${newsPortal.data.length} Items Found</p>
         `;
@@ -115,7 +127,6 @@ const loadAllNewsDisplay = async (newsPortal) => {
     breakingNews.textContent = "";
     newsPortalShow.forEach(news => {
         // console.log(news);
-
         // destructuring
         const { thumbnail_url, title, details, author, total_view, rating, _id } = news;
 
@@ -125,10 +136,10 @@ const loadAllNewsDisplay = async (newsPortal) => {
         <div class="row g-0" onclick="modalDetails('${_id}')" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="col-md-4">
                 <img src="${thumbnail_url}" class="img-fluid rounded-start" alt="...">
-             </div>
+            </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">${title}</h5>
+                     <h5 class="card-title">${title}</h5>
                      <p class="card-text">${details.slice(0, 300)}...</p>
                      
                         <div class="d-flex align-self-end align-items-center flex-column flex-md-row">
@@ -154,6 +165,7 @@ const loadAllNewsDisplay = async (newsPortal) => {
                                     </div>
 
                                     <div>&#8594;</div>
+
                                 </div>
                                      
                         </div>
@@ -166,7 +178,6 @@ const loadAllNewsDisplay = async (newsPortal) => {
     //load spinner
     loadSpinner(false);
 }
-
 
 
 // dispalyShow();
